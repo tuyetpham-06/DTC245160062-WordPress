@@ -1,6 +1,6 @@
 # Đề 3: Website Quảng bá Sản phẩm (WordPress)
-- Sinh viên: [Họ và Tên Sinh Viên]
-- MSSV: [Mã Số Sinh Viên]
+- Sinh viên: Phạm Thị Ánh Tuyết
+- MSSV: DTC245160062
 - Môn học: Triển khai và Quản trị Hệ thống Phần mềm
 
 ## 1. Giới thiệu Kiến trúc
