@@ -114,6 +114,29 @@ services:
       - prometheus
     security_opt:
       - no-new-privileges:true
+  # Loki
+  loki:
+    image: grafana/loki:latest
+    container_name: wp_loki
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - wp_network
+
+  # Promtail
+  promtail:
+    image: grafana/promtail:latest
+    container_name: wp_promtail
+    volumes:
+      - /var/log:/var/log
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./promtail/promtail-config.yml:/etc/promtail/config.yml:ro
+    command: -config.file=/etc/promtail/config.yml
+    networks:
+      - wp_network
+    depends_on:
+      - loki
 
 networks:
   wp_network:
